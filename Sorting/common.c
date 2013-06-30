@@ -34,6 +34,7 @@ void copy_in(int *copy, int *in, int size) {
 }
 
 void test(int *in, int size, void (*f_1)(int *, int)){
+	init_in(in, size);
 	start = clock();
 	f_1(in, size);
 	end = clock();

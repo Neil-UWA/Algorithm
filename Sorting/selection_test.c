@@ -1,11 +1,10 @@
-#include "bubble.h"
+#include "selection.h"
 
 int main(void)
 {
 	int in[30];
-	
 	srand(time(NULL));
-	
-	test(in, 30, bubble_sort_v1);
+
+	test(in, 30, selection);
 	return 0;
 }
