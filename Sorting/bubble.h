@@ -3,4 +3,5 @@
 #include "common.h"
 
 extern void bubble_sort(int *, int);
+extern void op_bubble_sort(int *, int);
 #endif
