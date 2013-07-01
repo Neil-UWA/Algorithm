@@ -1,6 +1,6 @@
 #include "common.h"
 
-clock_t start, end;
+static clock_t start_time;
 
 bool is_greater(int a, int b) {
 	return a > b;
@@ -33,13 +33,22 @@ void copy_in(int *copy, int *in, int size) {
 	}
 }
 
-void test(int *in, int size, void (*f_1)(int *, int)){
-	init_in(in, size);
-	start = clock();
+void start(void) {
+	start_time = clock();
+}
+
+void stop(void) {
+	printf("Time used %lf secs \n", ((double)clock() - start_time)/CLOCKS_PER_SEC);
+}
+
+void test(int *in, int size, void (*f_1)(int *, int)) {
+	start();
 	f_1(in, size);
-	end = clock();
+	stop();
+
 	for (int i = 0; i < size-1; i++) {
 		assert(in[i]<=in[i+1]);
 	}
-	printf("Time used %lf secs \n", ((double)end -start)/CLOCKS_PER_SEC);
+
 }
+

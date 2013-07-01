@@ -11,5 +11,7 @@ extern void swap(int *, int *);
 extern void show(int *, int);
 extern void init_in(int *, int);
 extern void copy_in(int *, int *, int);
+extern void start(void);
+extern void stop(void);
 extern void test(int *, int, void(*)(int *, int));
 #endif
