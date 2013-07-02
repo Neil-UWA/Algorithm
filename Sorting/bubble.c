@@ -1,20 +1,15 @@
 #include "bubble.h"
 
 void bubble_sort_v0(int *in, int size) {
-	//int	swap_count = 0;
-
 	printf("\nbubble_sort_v0 \n");
 
 	for (int i = 0; i < size - 1; i++) {
 		for (int j = 0; j < size-1; j++) {
 			if (is_greater(in[j], in[j+1])) {
 				swap(&in[j], &in[j+1]);
-				//swap_count ++;
 			}
 		}
 	}
-	
-//	printf("The number of swaps: %d\n", swap_count);
 }
 
 void bubble_sort_v1(int *in, int size) {
@@ -60,18 +55,17 @@ void bubble_sort_v2(int *in, int size) {
 }
 
 void bubble_sort_v3(int *in, int size) {
-	int new = 0;
 
 	printf("\nbubble_sort_v3 \n");
 
 	for (int i = 0; i < size - 1; i++) {
-		for (int j = 0; j < size-1; j++) {
+		int new = i;
+		for (int j = 0; j < size - 1; j++) {
 			if (is_greater(in[j], in[j+1])) {
 				swap(&in[j], &in[j+1]);
-				new = j+1;
+				new = j + 1;
 			}
 		}
-
 		size = new;
 	}
 }
