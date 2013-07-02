@@ -14,9 +14,8 @@ void selection_v2(int *in, int size) {
 	for (i = 0; i < size - 1; i++) {
 		min = i;
 		for (j = i + 1; j < size; j++) 
-			if (is_greater(in[i], in[j])) min = j;
+			if (is_greater(in[min], in[j])) min = j;
 
 		if (min != i) swap(&in[i], &in[min]);
-		
 	}
 }
