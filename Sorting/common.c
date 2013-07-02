@@ -41,14 +41,17 @@ static void stop(void) {
 	printf("Time used %lf secs \n", ((double)clock() - start_time)/CLOCKS_PER_SEC);
 }
 
+static void compare_elements(int *in, int size){
+	for (int i = 0; i < size-1; i++) {
+		assert(in[i]<=in[i+1]);
+	}
+}
+
 void test(int *in, int size, void (*f_1)(int *, int)) {
 	start();
 	f_1(in, size);
 	stop();
-
-	for (int i = 0; i < size-1; i++) {
-		assert(in[i]<=in[i+1]);
-	}
-
+	
+	compare_elements(in, size);
 }
 
