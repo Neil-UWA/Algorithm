@@ -33,11 +33,11 @@ void copy_in(int *copy, int *in, int size) {
 	}
 }
 
-void start(void) {
+static void start(void) {
 	start_time = clock();
 }
 
-void stop(void) {
+static void stop(void) {
 	printf("Time used %lf secs \n", ((double)clock() - start_time)/CLOCKS_PER_SEC);
 }
 
