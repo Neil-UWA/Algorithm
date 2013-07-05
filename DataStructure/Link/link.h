@@ -6,12 +6,12 @@
 
 #define CHECK(x) if (NULL==x) { printf("Memory allocation failed!\n"); exit(1); }
 
-typedef struct _LinkNode {
-	int	item;
-	struct _LinkNode *next;
-} LinkNode;
+typedef struct _link_t {
+	int	key;
+	struct _link_t *next;
+} link_t;
 
-extern LinkNode* create_node(int item);
-extern void	add_node(LinkNode *link, int item); 
-extern void show_link(LinkNode *link);
+extern link_t* new_node(int);
+extern void add_node(link_t *, int);
+extern void show(link_t *);
 #endif
