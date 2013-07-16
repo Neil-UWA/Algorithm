@@ -11,6 +11,7 @@ typedef struct _btree_t {
 	struct _btree_t *left, *right;
 } btree_t;
 
+btree_t* new(int);
 void insert_tree(btree_t **, int);
 void preOrderTraverse(btree_t *);
 void inOrderTraverse(btree_t *);

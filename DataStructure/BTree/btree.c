@@ -1,11 +1,20 @@
 #include "btree.h"
 #include "btree.h"
 
+btree_t* new(int key) {
+	btree_t *t = NULL;
+	
+	t = malloc(sizeof(btree_t));
+	t->left = NULL;
+	t->right = NULL;
+	t->key = key;
+
+	return t;
+}
+
 void insert_tree(btree_t **t, int key) {
 	if (!*t) {
-		*t = malloc(sizeof(btree_t));
-		(*t)->key = key;
-		(*t)->right = (*t)->left = NULL;
+		*t = new(key);
 		return;	
 	}
 
