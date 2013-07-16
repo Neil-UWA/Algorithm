@@ -68,14 +68,17 @@ void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...) {
 	f(&t, i);
 
 	va_start(parg, i);
-	while((value = va_arg(parg, int)!=0)){
+	while((value = va_arg(parg, int))!=0){
 		f(&t, value);
 	}
 	va_end(parg);
 
+	printf("pre order traverse\n");
 	preOrderTraverse(t);
 	printf("\n");
+	printf("in order traverse\n");
 	inOrderTraverse(t);
 	printf("\n");
+	printf("post order traverse\n");
 	postOrderTraverse(t);
 }
