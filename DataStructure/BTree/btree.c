@@ -1,5 +1,4 @@
 #include "btree.h"
-#include "btree.h"
 
 btree_t* new(int key) {
 	btree_t *t = NULL;
@@ -18,7 +17,7 @@ void insert_tree(btree_t **t, int key) {
 		return;	
 	}
 
-	if (key > (*t)->key) {
+	if (key < (*t)->key) {
 		insert_tree(&(*t)->left, key);
 	}
 	else {
@@ -61,6 +60,51 @@ void postOrderTraverse(btree_t *t){
 	
 }
 
+//recursion version
+btree_t* search_v1(btree_t *t, int key) {
+
+	if (key == t->key || NULL == t){
+		return t;
+	} 
+
+	if (key < t->key){
+		return	search_v1(t->left, key);
+	} 
+	else {
+		return search_v1(t->right, key);
+	}
+}
+
+//iterative version
+btree_t* search_v2(btree_t *t, int key) {
+	while(NULL != t && key != t->key){
+		if (key < t->key) {
+			t = t->left;
+		}
+		else {
+			t = t->right;
+		}
+	}
+
+	return t;
+}
+
+btree_t* minimum(btree_t *t){
+	while(NULL != t->left){
+		t = t->left;
+	}
+
+	return t;
+}
+
+btree_t* maximum(btree_t *t){
+	while(NULL != t->right){
+		t = t->right;
+	}
+
+	return t;
+}
+
 void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...) {
 	va_list parg;
 	int		value;
@@ -72,13 +116,4 @@ void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...) {
 		f(&t, value);
 	}
 	va_end(parg);
-
-	printf("pre order traverse\n");
-	preOrderTraverse(t);
-	printf("\n");
-	printf("in order traverse\n");
-	inOrderTraverse(t);
-	printf("\n");
-	printf("post order traverse\n");
-	postOrderTraverse(t);
 }
