@@ -23,6 +23,7 @@ int main(int argc, const char *argv[]) {
 
 	btree_t *temp = NULL;
 	temp = search_v2(t, 8);
+	printf("%d parent\n", temp->p->key);
 	if (temp) {
 		printf("\n%d exists\n", temp->key);
 	}

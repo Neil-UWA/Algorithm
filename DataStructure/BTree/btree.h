@@ -7,7 +7,7 @@
 
 typedef struct _btree_t {
 	int	key;
-	struct _btree_t *left, *right;
+	struct _btree_t *left, *right, *p;
 } btree_t;
 
 btree_t* new(int);

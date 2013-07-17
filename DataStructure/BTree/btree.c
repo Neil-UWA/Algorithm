@@ -6,6 +6,7 @@ btree_t* new(int key) {
 	t = malloc(sizeof(btree_t));
 	t->left = NULL;
 	t->right = NULL;
+	t->p = NULL;
 	t->key = key;
 
 	return t;
@@ -19,9 +20,11 @@ void insert_tree(btree_t **t, int key) {
 
 	if (key < (*t)->key) {
 		insert_tree(&(*t)->left, key);
+		(*t)->left->p = (*t);
 	}
 	else {
 		insert_tree(&(*t)->right, key);
+		(*t)->right->p = (*t);
 	}
 }
 
@@ -110,6 +113,7 @@ void delete_tree(btree_t *t) {
 		delete_tree(t->left);
 		delete_tree(t->right);
 		free(t);
+		t = NULL;
 	}
 }
 
