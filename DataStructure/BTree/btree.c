@@ -105,6 +105,14 @@ btree_t* maximum(btree_t *t){
 	return t;
 }
 
+void delete_tree(btree_t *t) {
+	if (t) {
+		delete_tree(t->left);
+		delete_tree(t->right);
+		free(t);
+	}
+}
+
 void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...) {
 	va_list parg;
 	int		value;
