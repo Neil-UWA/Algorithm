@@ -2,7 +2,7 @@
 
 btree_t* new(int key) {
 	btree_t *t = NULL;
-	
+
 	t = malloc(sizeof(btree_t));
 	t->left = NULL;
 	t->right = NULL;
@@ -32,35 +32,29 @@ void preOrderTraverse(btree_t *t) {
 	if (NULL == t) {
 		return;	
 	}
-	else {
-		printf("%d\n", t->key);
-		preOrderTraverse(t->left);
-		preOrderTraverse(t->right);
-	}
+	printf("%d\n", t->key);
+	preOrderTraverse(t->left);
+	preOrderTraverse(t->right);
 }
 
 void inOrderTraverse(btree_t *t){
 	if (NULL == t) {
 		return;	
 	}
-	else {
-		preOrderTraverse(t->left);
-		printf("%d\n", t->key);
-		preOrderTraverse(t->right);
-	}
-	
+	preOrderTraverse(t->left);
+	printf("%d\n", t->key);
+	preOrderTraverse(t->right);
+
 }
 
 void postOrderTraverse(btree_t *t){
 	if (NULL == t) {
 		return;	
 	}
-	else {
-		preOrderTraverse(t->right);
-		printf("%d\n", t->key);
-		preOrderTraverse(t->left);
-	}
-	
+	preOrderTraverse(t->right);
+	printf("%d\n", t->key);
+	preOrderTraverse(t->left);
+
 }
 
 //recursion version
@@ -124,7 +118,7 @@ void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...) {
 	f(&t, i);
 
 	va_start(parg, i);
-	while((value = va_arg(parg, int))!=0){
+	while((value = va_arg(parg, int))){
 		f(&t, value);
 	}
 	va_end(parg);
