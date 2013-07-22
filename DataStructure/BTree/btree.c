@@ -1,9 +1,13 @@
 #include "btree.h"
 
+#define CHECKMEM(X) if (NULL == X) { perror("failed to allocate memory\n"); exit(EXIT_FAILURE); }
+
 btree_t* new(int key) {
 	btree_t *t = NULL;
 
 	t = malloc(sizeof(btree_t));
+	CHECKMEM(t);
+
 	t->left = NULL;
 	t->right = NULL;
 	t->p = NULL;
