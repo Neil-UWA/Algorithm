@@ -106,12 +106,12 @@ btree_t* maximum(btree_t *t){
 	return t;
 }
 
-void delete_tree(btree_t *t) {
-	if (t) {
-		delete_tree(t->left);
-		delete_tree(t->right);
-		free(t);
-		t = NULL;
+void delete_tree(btree_t **t) {
+	if (*t) {
+		delete_tree(&(*t)->left);
+		delete_tree(&(*t)->right);
+		free(*t);
+		*t = NULL;
 	}
 }
 

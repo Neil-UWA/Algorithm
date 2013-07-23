@@ -32,7 +32,7 @@ int main(int argc, const char *argv[]) {
 	printf("%d is the minimum\n",temp->key );
 	temp = maximum(t);
 	printf("%d is the maximum\n",temp->key );
-	delete_tree(t);
 
+	delete_tree(&t);
 	return 0;
 }

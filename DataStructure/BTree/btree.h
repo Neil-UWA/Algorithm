@@ -19,6 +19,6 @@ btree_t* search_v1(btree_t *, int);
 btree_t* search_v2(btree_t *, int);
 btree_t* minimum(btree_t *);
 btree_t* maximum(btree_t *);
-void delete_tree(btree_t *);
+void delete_tree(btree_t **);
 void tree_test(void (*f)(btree_t **, int), btree_t *t, int i, ...);
 #endif
