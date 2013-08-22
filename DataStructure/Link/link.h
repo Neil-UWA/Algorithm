@@ -3,8 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
-#define CHECK(x) if (NULL==x) { printf("Memory allocation failed!\n"); exit(1); }
+#include <assert.h>
 
 typedef struct _link_t {
 	int	key;
