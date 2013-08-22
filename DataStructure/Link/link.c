@@ -3,7 +3,7 @@
 link_t* new_node(int key) {
 	link_t *node = NULL;
 
-	node = (link_t*)malloc(sizeof(link_t));
+	node = malloc(sizeof(link_t));
 	node->key = key;
 	node->next = NULL;
 
