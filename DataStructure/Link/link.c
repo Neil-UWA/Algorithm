@@ -10,6 +10,15 @@ link_t* new_node(int key) {
 	return node;
 }
 
+void add(link_t **link, int key) {
+	if (NULL == *link) {
+		*link = new_node(key);
+		return;
+	}
+
+	add(&(*link)->next, key);
+}
+
 void add_node(link_t *link, int key) {
 	link_t *p = NULL;
 

@@ -11,6 +11,7 @@ typedef struct _link_t {
 } link_t;
 
 extern link_t* new_node(int);
+extern void add(link_t **, int);
 extern void add_node(link_t *, int);
 extern void show(link_t *);
 #endif

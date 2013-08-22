@@ -3,5 +3,5 @@
 #include <stdarg.h>
 #include "link.h"
 
-extern void test(void (*)(link_t *, int), link_t *, int, ...);
+extern void test(void (*)(link_t **, int), link_t *, int, ...);
 #endif
