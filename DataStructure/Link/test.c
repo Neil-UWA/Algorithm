@@ -15,5 +15,5 @@ void test(void (*f)(link_t **, int), link_t *link, int i, ...) {
 	}
 	va_end(parg);
 
-	show(link);
+	traverse(link);
 }

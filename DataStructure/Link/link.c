@@ -19,6 +19,15 @@ void add(link_t **link, int key) {
 	add(&(*link)->next, key);
 }
 
+void traverse(link_t *link) {
+	if (NULL == link) {
+		return;
+	}
+
+	printf("%d\n", link->key);
+	traverse(link->next);
+}
+
 void add_node(link_t *link, int key) {
 	link_t *p = NULL;
 
