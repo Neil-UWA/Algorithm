@@ -1,7 +1,7 @@
 it:
-	gcc fibonacci.c -std=c99
+	gcc fibonacci.c -std=c99 -o fibonacci
 
 clean:
-	rm -rf a.out
+	rm -rf fibonacci 
 
 .PHONY:clean

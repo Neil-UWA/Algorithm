@@ -19,12 +19,13 @@ void test(int (*f)(int), int n) {
 		printf("%d\n", f(i));
 	}
 	end = clock();
-	printf("%lf secs\n",((double)end - start)/CLOCKS_PER_SEC);
+	printf("totoal time used: %lf secs\n",((double)end - start)/CLOCKS_PER_SEC);
 }
 
 int main(int argc, const char *argv[]) {
 	int n;
 	if (argc != 2) {
+		printf("usage: [ ./fibonacci n ]\n");
 		perror("");
 		exit(EXIT_FAILURE);
 	}
