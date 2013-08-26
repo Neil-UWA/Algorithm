@@ -1,22 +1,25 @@
 CC		=		gcc
-CCFLAG	=		-std=c99
+CFLAGS	=		-std=c99
 
-SOURCE_COMMON	=	common.c
+OBJ_COMMON	=	common.o
 
-SOURCE_BUBBLE	=	bubble.c  bubble_test.c
-SOURCE_SELECT	=	selection.c  selection_test.c
-SOURCE_QUICK	=	quicksort.c quicksort.h quicksort_test.c
+OBJ_BUBBLE	=	bubble.o  bubble_test.o
+OBJ_SELECT	=	selection.o  selection_test.o
+OBJ_QUICK	=	quicksort.o  quicksort_test.o
 
-HEADERS			=	selection.h common.h bubble.h quicksort.h
+HDR			=	selection.h common.h bubble.h quicksort.h
 
-bubble: $(SOURCE_BUBBLE) $(SOURCE_COMMON) $(HEADERS)
-	$(CC) $(CCFLAG) $(SOURCE_BUBBLE) $(SOURCE_COMMON) $(HEADERS) -o bubble
+bubble: $(OBJ_BUBBLE) $(OBJ_COMMON) 
+	$(CC) $(CFLAGS) $(OBJ_BUBBLE) $(OBJ_COMMON)  -o bubble
 
-select: $(SOURCE_SELECT) $(SOURCE_COMMON) $(HEADERS)
-	$(CC) $(CCFLAG) $(SOURCE_SELECT) $(SOURCE_COMMON) $(HEADERS) -o select
+select: $(OBJ_SELECT) $(OBJ_COMMON) 
+	$(CC) $(CFLAGS) $(OBJ_SELECT) $(OBJ_COMMON)  -o select
 
-quicksort: $(SOURCE_QUICK) $(SOURCE_COMMON) $(HEADERS)
-	$(CC) $(CCFLAG) $(SOURCE_QUICK) $(SOURCE_COMMON) $(HEADERS) -o quicksort 
+quicksort: $(OBJ_QUICK) $(OBJ_COMMON) 
+	$(CC) $(CFLAGS) $(OBJ_QUICK) $(OBJ_COMMON)  -o quicksort 
+
+%.o:%.c $(HDR)
+	$(CC) $(CFLGAS) -c $< -o $@
 
 clean: 
-	@rm -rf a.out *.h.gch 
+	@rm -rf bubble select quicksort *.o 
