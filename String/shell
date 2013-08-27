@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+touch Makefile $1.c $1.h $1_test.c
