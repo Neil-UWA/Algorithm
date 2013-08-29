@@ -7,4 +7,5 @@
 #include <time.h>
 
 extern void count_dup(const char *file);
+extern void test(void (*f)(const char *), const char *file);
 #endif
