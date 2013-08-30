@@ -11,12 +11,13 @@ static int count(FILE *fp) {
 		dict[i]++;
 	}	
 
-	for (int i = 0; i < 256; i++) {
+	for (int i = 32; i < 256; i++) {
 		if (0 != dict[i]) {
 			total += dict[i];
-			printf("%c:%d\n", i, dict[i]);
+			printf("[%c]:%d\t\t", i, dict[i]);
 		}
 	}
+	printf("\n");
 	return total;
 }
 
